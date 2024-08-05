@@ -46,7 +46,7 @@ public class ManegerApp
         ¿que tan alto lagra {name}?");
         string bark = Console.ReadLine()??"No Asignado";
 
-        return new Dog(name,year,month,day,breed,color,weight,microchip,bark)
+        return new Dog(name,year,month,day,breed,color,weight,microchip,bark);
 
 
     }
@@ -83,15 +83,17 @@ public class ManegerApp
         return new Cat(name,year,month,day,breed,color,weight);
     }
     
-    public void ShowHeader() {
+    public static void ShowHeader() {
         Console.Clear();
         Console.WriteLine("#######·· VETERINARY CENTER ··#######");
      }
-    public void ShowFooter() {
+    public static void ShowFooter() {
         Console.WriteLine("#######········· RIWI ·········#######");
+        Console.ReadKey();
      }
-    public void ShowSeparator() { 
+    public static void ShowSeparator() { 
         Console.WriteLine("-----------------------------------");
+        
     }
 
 }
