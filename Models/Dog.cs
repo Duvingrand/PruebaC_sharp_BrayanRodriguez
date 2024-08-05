@@ -34,6 +34,7 @@ public class Dog : Animal
             Console.WriteLine($"{Name} ha sido castrado exitosamente");
         }
     }
+    //------------------------------------------------------------------------------------------------------
     public void Hairdress()
     {
 
@@ -95,18 +96,23 @@ public class Dog : Animal
 
         }
     }
-
+//------------------------------------------------------------------------------------------------------
     public override void ShowInformation()
     {
         Console.WriteLine(@$"
         ID: {Id}
         Nombre: {Name}
         Fecha de nacimiento: {BirthDate.Day}/{BirthDate.Month}/{BirthDate.Year}
+        Edad: {CalculateAgeInMonths()} meses
         Raza: {Breed}
         Color: {Color}
         Peso: {WeightInKg}.Kg
         Está castrado?: {BreedingStatus}
-        Pelaje: {CoatType}"
+        Pelaje: {CoatType}
+        Temperamento: {Temperament}
+        Codigo Microchip: {MicrochipNumber}
+        Nivel Ladrido: {BarkVolume}
+        "
         );
     }
 
@@ -114,9 +120,74 @@ public class Dog : Animal
     {
         BasicReview();
     }
+//------------------------------------------------------------------------------------------------------
 
-    public int LetCalculateAge()
+    public int HaveId()
     {
-        return CalculateAgeInMonths();
+        return Id;
     }
+
+    public string HaveName()
+    {
+        return Name ?? "No registrado";
+    }
+//------------------------------------------------------------------------------------------------------
+
+    public void EditName()
+    {
+        Console.WriteLine("Ingrese el nuevo nombre");
+        Name = Console.ReadLine();
+    }
+
+    public void EditYear()
+    {
+        Console.WriteLine("Ingrese el nuevo Año de nacimiento");
+        int year=Convert.ToInt16(Console.ReadLine());
+
+        Console.WriteLine("Ingrese el nuevo Mes de nacimiento");
+        byte month=Convert.ToByte(Console.ReadLine());
+
+        Console.WriteLine("Ingrese el nuevo Dia de nacimiento");
+        byte day=Convert.ToByte(Console.ReadLine());
+
+        BirthDate=new DateOnly(year,month,day);
+
+    }
+
+    public void EditBreed()
+    {
+        Console.WriteLine("Ingrese la nueva raza");
+        Breed = Console.ReadLine();
+    }
+
+    public void EditColor()
+    {
+        Console.WriteLine("Ingrese el nuevo color");
+        Color = Console.ReadLine();
+    }
+
+    public void EditWeight()
+    {
+        Console.WriteLine("Ingrese el nuevo peso en Kg");
+        WeightInKg = Convert.ToDouble(Console.ReadLine());
+    }
+
+    public void EditTemperament()
+    {
+        Console.WriteLine($"Ingrese el temperamento actual de {Name}");
+        Temperament = Console.ReadLine();
+    }
+
+    public void EditMicrochipNumber()
+    {
+        Console.WriteLine($"Ingrese el numero del microchip de {Name}");
+        MicrochipNumber = Console.ReadLine();
+    }
+
+    public void EditBark()
+    {
+        Console.WriteLine($"Ingrese el nivel de ladrido de {Name}");
+        BarkVolume = Console.ReadLine();
+    }
+
 }

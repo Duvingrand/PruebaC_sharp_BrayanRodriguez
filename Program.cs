@@ -11,6 +11,8 @@ veterinaria1.SaveDog(new Dog("Zeus",2022,4,9,"doberman","negro",45,"Cd-25228","a
 
 veterinaria1.SaveCat(new Cat("mechas",2014,8,9,"persa","blanco",4));
 veterinaria1.SaveCat(new Cat("chimi",2020,11,30,"criollo","blanco",6));
-veterinaria1.SaveCat(new Cat("mechas",2014,8,9,"esfinge","gris",3));
-veterinaria1.SaveCat(new Cat("mechas",2014,8,9,"siames","negro y blanco",5));
-veterinaria1.SaveCat(new Cat("mechas",2014,8,9,"ragdoll","negro y blanco",3));
+veterinaria1.SaveCat(new Cat("mimo",2014,8,9,"esfinge","gris",3));
+veterinaria1.SaveCat(new Cat("chanda",2014,8,9,"siames","negro y blanco",5));
+veterinaria1.SaveCat(new Cat("nino",2014,8,9,"ragdoll","negro y blanco",3));
+
+Menú.ShowMenu(veterinaria1);

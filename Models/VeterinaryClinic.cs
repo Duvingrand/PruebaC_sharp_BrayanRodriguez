@@ -37,7 +37,7 @@ public class VeterinaryClinic
     public void DeleteDog(int id)
     {
         ManegerApp.ShowHeader();
-        var deleteableDog = Dogs.Find(d => d.Id == id);
+        var deleteableDog = Dogs.Find(d => d.HaveId() == id);
 
         if (deleteableDog != null)
         {
@@ -49,12 +49,12 @@ public class VeterinaryClinic
         {
             Console.WriteLine($"no se encontró ningun perro con ID de {id}");
         }
-        ManegerApp.ShowFooter();
+        
     }
     public void DeleteCat(int id)
     {
         ManegerApp.ShowHeader();
-        var deleteableCat = Cats.Find(d => d.Id == id);
+        var deleteableCat = Cats.Find(d => d.HaveId() == id);
 
         if (deleteableCat != null)
         {
@@ -66,7 +66,7 @@ public class VeterinaryClinic
         {
             Console.WriteLine($"no se encontró ningun gato con ID de {id}");
         }
-        ManegerApp.ShowFooter();
+        
     }
     //--------------------------------------------------------------------------------------------------------
     public void ShowAllPatients()
@@ -76,7 +76,7 @@ public class VeterinaryClinic
         foreach (var i in Cats)
         {
             ManegerApp.ShowSeparator();
-            i.ShowInformation();
+            i.LetBasicReview();
             ManegerApp.ShowSeparator();
         }
 
@@ -84,10 +84,9 @@ public class VeterinaryClinic
         foreach (var i in Dogs)
         {
             ManegerApp.ShowSeparator();
-            i.ShowInformation();
+            i.LetBasicReview();
             ManegerApp.ShowSeparator();
         }
-        ManegerApp.ShowFooter();
 
     }
     public void ShowAnimals(string type)
@@ -99,10 +98,10 @@ public class VeterinaryClinic
             foreach (var i in Dogs)
             {
                 ManegerApp.ShowSeparator();
-                i.ShowInformation();
+                i.LetBasicReview();
                 ManegerApp.ShowSeparator();
             }
-            ManegerApp.ShowFooter();
+           
 
         }
         else if (type == "gato")
@@ -112,10 +111,10 @@ public class VeterinaryClinic
             foreach (var i in Cats)
             {
                 ManegerApp.ShowSeparator();
-                i.ShowInformation();
+                i.LetBasicReview();
                 ManegerApp.ShowSeparator();
             }
-            ManegerApp.ShowFooter();
+            
 
         }
     }
@@ -124,40 +123,24 @@ public class VeterinaryClinic
     public void ShowPatient(int idPatient)
     {
 
-        Console.WriteLine($"Desea buscar al gato o al perro de ID {idPatient}?");
-        string option = Console.ReadLine() ?? "";
+        var founded = Cats.Find(d => d.HaveId() == idPatient);
+        var founded2 = Dogs.Find(d => d.HaveId() == idPatient);
 
-        if (option == "perro")
+        if (founded != null&&founded2==null)
         {
-            var founded = Dogs.Find(d => d.Id == idPatient);
-            if (founded != null)
-            {
-                founded.ShowInformation();
-            }
-            else
-            {
-                Console.WriteLine($"no se encontró ningun perro con ID de {idPatient}");
-            };
-
+            founded.ShowInformation();
         }
-        else if (option == "gato")
-        {
-            var founded = Cats.Find(d => d.Id == idPatient);
-            if (founded != null)
-            {
-                founded.ShowInformation();
-            }
-            else
-            {
-                Console.WriteLine($"no se encontró ningun gato con ID de {idPatient}");
-            };
-
+        else if (founded == null&&founded2!=null) {
+            founded2.ShowInformation();
         }
         else
         {
-            Console.WriteLine("Opción invalida, ingrese perro o gato");
-        }
+            Console.WriteLine($"no se encontró ningun paciente con ID de {idPatient}");
+        };
+
+
     }
     //--------------------------------------------------------------------------------------------------------
 
+    
 }

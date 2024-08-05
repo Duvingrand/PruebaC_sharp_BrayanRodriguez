@@ -21,11 +21,13 @@ public class Cat : Animal
         if (BreedingStatus == true)
         {
             Console.WriteLine($"{Name} ya está castrado");
+             Console.ReadKey();
         }
         else
         {
             BreedingStatus = true;
             Console.WriteLine($"{Name} ha sido castrado exitosamente");
+            Console.ReadKey();
         }
     }
     public void Hairdress()
@@ -99,7 +101,8 @@ public class Cat : Animal
         Color: {Color}
         Peso: {WeightInKg}.Kg
         Está castrado?: {BreedingStatus}
-        Pelaje: {FurLength}"
+        Pelaje: {FurLength}
+        "
         );
     }
 
@@ -111,5 +114,52 @@ public class Cat : Animal
     public int LetCalculateAge()
     {
         return CalculateAgeInMonths();
+    }
+
+    public int HaveId(){
+        return Id;
+    }
+
+    public string HaveName(){
+        return Name??"No registrado";
+    }
+
+     public void EditName()
+    {
+        Console.WriteLine("Ingrese el nuevo nombre");
+        Name = Console.ReadLine();
+    }
+
+    public void EditYear()
+    {
+        Console.WriteLine("Ingrese el nuevo Año de nacimiento");
+        int year=Convert.ToInt16(Console.ReadLine());
+
+        Console.WriteLine("Ingrese el nuevo Mes de nacimiento");
+        byte month=Convert.ToByte(Console.ReadLine());
+
+        Console.WriteLine("Ingrese el nuevo Dia de nacimiento");
+        byte day=Convert.ToByte(Console.ReadLine());
+
+        BirthDate=new DateOnly(year,month,day);
+
+    }
+
+    public void EditBreed()
+    {
+        Console.WriteLine("Ingrese la nueva raza");
+        Breed = Console.ReadLine();
+    }
+
+    public void EditColor()
+    {
+        Console.WriteLine("Ingrese el nuevo color");
+        Color = Console.ReadLine();
+    }
+
+    public void EditWeight()
+    {
+        Console.WriteLine("Ingrese el nuevo peso en Kg");
+        WeightInKg = Convert.ToDouble(Console.ReadLine());
     }
 }
