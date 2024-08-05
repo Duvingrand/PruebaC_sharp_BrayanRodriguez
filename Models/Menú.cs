@@ -140,7 +140,7 @@ public class Menú
             while (editar)
             {
                 ManegerApp.ShowHeader();
-                Console.WriteLine($"Seleccione la propiedad a editar de {founded.HaveName()}");
+                Console.WriteLine($"Seleccione la propiedad a editar de {founded.HaveName().ToUpper()}");
                 Console.WriteLine($"1. Nombre");
                 Console.WriteLine($"2. Año de nacimiento");
                 Console.WriteLine($"3. Raza");
@@ -207,7 +207,7 @@ public class Menú
             while (editar)
             {
                 ManegerApp.ShowHeader();
-                Console.WriteLine($"Seleccione la propiedad a editar de {founded.HaveName()}");
+                Console.WriteLine($"Seleccione la propiedad a editar de {founded.HaveName().ToUpper()}");
                 Console.WriteLine($"1. Nombre");
                 Console.WriteLine($"2. Fecha de nacimiento");
                 Console.WriteLine($"3. Raza");
