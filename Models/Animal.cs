@@ -7,7 +7,7 @@ namespace PruebaC_sharp_BrayanRodriguez.Models;
 
     public abstract class Animal
     {
-        private int IdCounter=0;
+        private static int IdCounter=0;
         public int Id { get; set; }
         public string? Name { get; set; }
         public DateOnly BirthDate { get; set; }
@@ -17,6 +17,8 @@ namespace PruebaC_sharp_BrayanRodriguez.Models;
 
         public Animal(string name, int year, byte month, byte day, string breed, string color, double kg)
         {
+            IdCounter++;
+            Id=IdCounter;
             Name=name;
             BirthDate = new DateOnly(year, month, day);
             Breed=breed;
@@ -26,7 +28,11 @@ namespace PruebaC_sharp_BrayanRodriguez.Models;
 
         public abstract void ShowInformation();
 
-        protected void BasicReview(){}
-        // protected int CalculateAgeInMonths(){}
+        protected void BasicReview(){
+            
+        }
+        protected int CalculateAgeInMonths(){
+            return (BirthDate.Year*12)+BirthDate.Month;
+        }
         
     }
